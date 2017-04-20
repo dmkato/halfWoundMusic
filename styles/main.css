@@ -1,0 +1,46 @@
+html {
+    font-family: "Open Sans";
+}
+
+body {
+    margin: 0;
+}
+
+.shopName {
+    text-align: center;
+    background: #efefef;
+    height: 150px;
+}
+
+.shopName h1 {
+    padding: 20px;
+    font-size: 75px;
+}
+
+.nav {
+    display: block;
+    background: #e2e2e2;
+    height: 42px;
+}
+
+.navItem {
+    float: left;
+    display: block;
+    padding: 10 20 10 20;
+    background: #e2e2e2;
+}
+
+.navItem a {
+    color: black;
+    text-decoration: none;
+}
+
+.navItem:hover {
+    transition: 0.2s;
+    background-color: #cccccc;
+}
+
+.accountItem {
+    float: right;
+    padding: 10 10 10 10;
+}
