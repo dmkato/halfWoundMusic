@@ -4,30 +4,53 @@ html {
 
 body {
     margin: 0;
+    background-color: #FFFFFF;
+}
+
+.header {
+    background-color: #9EB9D4;
 }
 
 .shopName {
-    text-align: center;
-    background: #efefef;
-    height: 150px;
+    padding: 0 10 0 10 ;
+    margin: 0;
+    font-size: 60px;
+    color: white;
+    float: left;
+    border-right: #ACD outset thin;
+    height: 100%;
 }
 
-.shopName h1 {
-    padding: 20px;
-    font-size: 75px;
+.searchBar {
+    padding: 5 10 5 10;
+    float: left;
+    width: 96%;
+    height: 30px;
+}
+
+.searchBar input {
+    width: 100%;
+    height: 100%;
+}
+
+.menuBar {
+    padding: 5 0 5 0;
+    float: left;
+    width: 98%;
+    height: 30px;
 }
 
 .nav {
     display: block;
-    background: #e2e2e2;
-    height: 42px;
+    background: #9EB9D4;
+    border-bottom: #ACD outset thin;
+    height: 80px;
 }
 
 .navItem {
     float: left;
     display: block;
-    padding: 10 20 10 20;
-    background: #e2e2e2;
+    padding: 5 10 5 10;
 }
 
 .navItem a {
@@ -37,10 +60,24 @@ body {
 
 .navItem:hover {
     transition: 0.2s;
-    background-color: #cccccc;
+    color: white;
 }
 
 .accountItem {
     float: right;
     padding: 10 10 10 10;
+}
+
+.accountBar {
+    padding: 20 30 0 30;
+    float: left;
+    width: 230px;
+    height: 60px;
+}
+
+.middleMenus {
+    height: 100%;
+    width: 40%;
+    float: left;
+    border-right: #ACD outset thin;
 }
