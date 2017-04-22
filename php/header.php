@@ -2,7 +2,7 @@
 <head>
 
   <script src="js/main.js"></script>
-  <script src="lib/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
   <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
