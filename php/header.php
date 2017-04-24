@@ -1,35 +1,53 @@
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><?php echo "Halfwound Music | ".$pageTitle; ?></title>
 
   <script src="js/main.js"></script>
   <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
 </head>
-<header>
+<body>
+  <header>
 
-  <!-- Insert svg with parallax effect-->
-  <nav class="nav">
-    <h1 class="shopName">Halfwound Music</h1>
+    <div id="nav" class="container">
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-    <div class="middleMenus">
-      <div class="searchBar">
-        <input type="text"></input>
-      </div>
-      <div class="menuBar">
-        <div class="navItem"><a href="index.php">Home</a></div>
-        <div class="navItem"><a href="#">Shop</a></div>
-        <div class="navItem"><a href="#">Account</a></div>
-        <div class="navItem"><a href="#">Cart</a></div>
-        <div class="navItem"><a href="#">About Us</a></div>
+          <nav class="row">
+            <div id="shopName" class="col-md-4">
+              <h1 class="text-center">Halfwound Music</h1>
+            </div>
+
+            <div class="middleMenus col-md-6">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">Go!</button>
+                </span>
+              </div>
+
+              <ul class="nav nav-pills">
+                <li class=""><a href="index.php">Home</a></li>
+                <li class=""><a href="#">Shop</a></li>
+                <li class=""><a href="#">Account</a></li>
+                <li class=""><a href="#">Cart</a></li>
+                <li class=""><a href="#">About Us</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-2 align-middle">
+              <h4 class="text-center">Welcome, </h4>
+              <h4 class="text-center">[Insert User Name]</h4>
+            </div>
+
+          </nav>
+        </div>
       </div>
     </div>
 
-    <div class="accountBar">
-      <div class="accountItem">Welcome [Insert User Name]</div>
-    </div>
-
-  </nav>
-
-</header>
+  </header>

@@ -1,83 +1,25 @@
-html {
+h1, h2, h3, h4, h5, h6, a, p, div  {
     font-family: "Open Sans";
 }
 
+h1 {}
+
 body {
-    margin: 0;
-    background-color: #FFFFFF;
-}
-
-.header {
-    background-color: #9EB9D4;
-}
-
-.shopName {
-    padding: 0 10 0 10 ;
-    margin: 0;
-    font-size: 60px;
-    color: white;
-    float: left;
-    border-right: #ACD outset thin;
-    height: 100%;
-}
-
-.searchBar {
-    padding: 5 10 5 10;
-    float: left;
-    width: 96%;
-    height: 30px;
-}
-
-.searchBar input {
-    width: 100%;
-    height: 100%;
-}
-
-.menuBar {
-    padding: 5 0 5 0;
-    float: left;
-    width: 98%;
-    height: 30px;
-}
-
-.nav {
-    display: block;
-    background: #9EB9D4;
-    border-bottom: #ACD outset thin;
-    height: 80px;
-}
-
-.navItem {
-    float: left;
-    display: block;
-    padding: 5 10 5 10;
-}
-
-.navItem a {
-    color: black;
-    text-decoration: none;
-}
-
-.navItem:hover {
-    transition: 0.2s;
-    color: white;
-}
-
-.accountItem {
-    float: right;
-    padding: 10 10 10 10;
-}
-
-.accountBar {
-    padding: 20 30 0 30;
-    float: left;
-    width: 230px;
-    height: 60px;
+    background-color: rgba(70, 130, 180, 0.11);
 }
 
 .middleMenus {
-    height: 100%;
-    width: 40%;
-    float: left;
     border-right: #ACD outset thin;
+}
+
+#shopName {
+    border-right: #ACD outset thin;
+}
+
+#nav {
+    padding-top: 15px;
+}
+
+#nav .panel {
+    /*background-color: #f3f3f3;*/
 }

@@ -1,5 +1,11 @@
-<?php include "php/header.php"; ?>
+<?php
+  $pageTitle = "Home";
+  include "php/header.php";
+?>
 
-</body>
 
-</html>
+
+<!-- Site contents here-->
+<?php
+  include "php/footer.php";
+?>
