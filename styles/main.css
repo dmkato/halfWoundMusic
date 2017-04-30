@@ -5,21 +5,25 @@ h1, h2, h3, h4, h5, h6, a, p, div  {
 h1 {}
 
 body {
-    background-color: rgba(70, 130, 180, 0.11);
+    /*background-color: rgba(83, 104, 120, 0.11);*/
 }
 
 .middleMenus {
     border-right: #ACD outset thin;
 }
 
-#shopName {
-    border-right: #ACD outset thin;
+#searchBar {
+    margin-right: 10%;
 }
 
-#nav {
-    padding-top: 15px;
+header {
+    padding: 15px 0 10px 0;
+    background-color: #eee;
 }
 
-#nav .panel {
-    /*background-color: #f3f3f3;*/
+.navbar-fixed-bottom {
+    background-color: #eee;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
 }

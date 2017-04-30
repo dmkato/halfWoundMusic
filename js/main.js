@@ -1,0 +1,4 @@
+
+$(function() {
+   // $('#' + pageTitle).addClass("active");
+})
