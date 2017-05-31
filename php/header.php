@@ -1,3 +1,16 @@
+<?php
+session_start();
+if($_SESSION["username"] == "Not logged in") {
+  $username = "";
+  
+}
+else {
+  $username = $_SESSION["username"];
+  
+}
+
+?>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,15 +47,18 @@
               <ul class="nav nav-pills">
                 <li id="Home"><a href="index.php">Home</a></li>
                 <li id="Shop"><a href="#">Shop</a></li>
-                <li id="Account"><a href="#">Account</a></li>
+                <li id="Account"><a href="myaccount.php">Account</a></li>
                 <li id="Cart"><a href="#">Cart</a></li>
                 <li id="AboutUs"><a href="#">About Us</a></li>
+                <li id="Signup"><a href="signup">Sign Up</a></li>
+                <li id="Login"><a href="login.php">Login</a></li>
+                <li id="Myaccount"><a href="logout.php">Logout</a></li>
               </ul>
             </div>
 
             <div class="col-md-2 align-middle">
               <h4 class="text-center">Welcome, </h4>
-              <h4 class="text-center">[Insert User Name]</h4>
+              <h4 class="text-center"><?php echo "$username"; ?></h4>
             </div>
 
           </nav>
