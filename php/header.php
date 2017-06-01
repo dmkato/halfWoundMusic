@@ -3,12 +3,16 @@
 
 
 if($_SESSION["username"] == "Not logged in") {
-  $username = "guest";
+  $username = "Guest";
+
 } else {
   $username = $_SESSION["username"];
-}
 
+}
+//edit to correct path depending on where files are hosted
+$directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
 ?>
+
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +21,11 @@ if($_SESSION["username"] == "Not logged in") {
   <script>
     var pageTitle = "<?php echo $pageTitle;?>";
   </script>
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/styles/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/main.css">
+  <script src="<?php //echo $directory;?>/js/jquery.min.js"></script>
+  <script src="<?php //echo $directory;?>/js/main.js"></script>
+  <script src="<?php //echo $directory;?>/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="<?php //echo $directory;?>/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php //echo $directory;?>/styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
 </head>
@@ -44,18 +48,18 @@ if($_SESSION["username"] == "Not logged in") {
 
               <ul class="nav nav-pills">
 
-                <li id="Shop"><a href="/index.php">Shop</a></li>
-                <li id="Account"><a href="/php/myaccount.php">Account</a></li>
-                <li id="Cart"><a href="/php/cart.php">Cart</a></li>
-                <li id="AboutUs"><a href="/php/aboutUs.php">About Us</a></li>
+                <li id="Home"><a href="<?php //echo $directory;?>/index.php">Home</a></li>
+                <li id="Account"><a href="<?php //echo $directory;?>/php/myaccount.php">Account</a></li>
+                <li id="Cart"><a href="<?php //echo $directory;?>/php/cart.php">Cart</a></li>
+                <li id="AboutUs"><a href="<?php //echo $directory;?>/php/aboutUs.php">About Us</a></li>
                 <li id="Signup"><a href="/php/signup.php">Sign Up</a></li>
-                <li id="Login"><a href="/php/login.php">Login</a></li>
-                <li id="Myaccount"><a href="/php/logout.php">Logout</a></li>
+                <li id="Login"><a href="<?php ////echo $directory;?>/php/login.php">Login</a></li>
+                <li id="Myaccount"><a href="<?php //echo $directory;?>/php/logout.php">Logout</a></li>
 
               </ul>
             </div>
 
-            <div id="greeting" class="col-md-2 align-middle">
+            <div class="col-md-2 align-middle">
               <h4 class="text-center">Welcome, </h4>
               <h4 class="text-center"><?php echo "$username"; ?></h4>
             </div>
