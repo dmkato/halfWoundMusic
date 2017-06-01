@@ -1,16 +1,12 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html>
 <?php
   $pageTitle = "accountProcess";
-  include "php/header.php";
+  include "header.php";
 ?>
 <body>
 
-	
+
 	<?php
 	include 'config.php';
 	$dbhost = DBHOST;
@@ -27,7 +23,7 @@ session_start();
 	}
 	$theusername = $_POST["email"];
 	//check username
-	//sanitize inputs	
+	//sanitize inputs
 	$theusername = mysqli_real_escape_string($conn, $_POST["email"]);
 	//select username from table
 	$sql = "SELECT email FROM User WHERE email='$theusername'";
@@ -35,8 +31,8 @@ session_start();
 	$rows = mysqli_num_rows($result);
 	if($rows!=1)
 	{
-	
-		
+
+
 		$thepassword = htmlspecialchars($_POST["password"]);
 		$thefirstName = htmlspecialchars($_POST["first"]);
 		$thelastName = htmlspecialchars($_POST["last"]);
@@ -47,13 +43,13 @@ session_start();
 		$thelastName = mysqli_real_escape_string($conn, $thelastName);
 		$theemail = mysqli_real_escape_string($conn, $theemail);
 		echo "<br>";
-		
+
 		echo "<br>";
 		$_SESSION["username"] = $theemail;
 
 		//hash password
 		$thepassword = md5($thepassword);
-		
+
 		//insert info
 		$sql = "INSERT INTO User (email, password, lastname, firstname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
 
@@ -61,12 +57,12 @@ session_start();
 			echo "Your account information has been saved!";
 			echo "<br>";
 
-		} 
+		}
 		else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
-		
-		
+
+
 	}
 	else {
 		echo "<br>";
@@ -78,6 +74,6 @@ session_start();
 	?>
 
 
-	<?php include 'php/footer.php'; ?>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

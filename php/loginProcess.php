@@ -1,5 +1,6 @@
 <?php
-session_start();
+  $pageTitle = "loginprocess";
+  include "header.php";
 
 include 'config.php';
 $dbhost = DBHOST;
@@ -40,10 +41,6 @@ mysqli_close($conn);
 
 </head>
 <body>
-<?php
-  $pageTitle = "loginprocess";
-  include "header.php";
-?>
 
 	<br>
 

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-
 <?php
   $pageTitle = "login";
   include "header.php";
 ?>
+<!DOCTYPE html>
+<html>
 <body>
 
 	<br>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
 <?php
   $pageTitle = "signup";
   include "header.php";
 ?>
+<!DOCTYPE html>
+<html>
 <body>
 
 	<br>

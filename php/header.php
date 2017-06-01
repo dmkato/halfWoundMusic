@@ -1,16 +1,11 @@
 <?php
-  // session_start();
+  session_start();
 
-
-if($_SESSION["username"] == "Not logged in") {
-  $username = "";
-
-}
-else {
-  $username = $_SESSION["username"];
-
-}
-
+  if($_SESSION["username"] == "Not logged in") {
+    $username = "";
+  } else {
+    $username = $_SESSION["username"];
+  }
 ?>
 
 <html>

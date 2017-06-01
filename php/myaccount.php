@@ -1,5 +1,6 @@
 <?php
-session_start();
+$pageTitle = "myaccount";
+include "header.php";
 
 include 'config.php';
 $dbhost = DBHOST;
@@ -10,10 +11,6 @@ $dbpass = DBPASS;
 ?>
 <!DOCTYPE html>
 <html>
-<?php
-  $pageTitle = "myaccount";
-  include "header.php";
-?>
 <body>
 
 
