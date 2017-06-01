@@ -7,12 +7,14 @@ $dbname = DBNAME;
 $dbuser = DBUSER;
 $dbpass = DBPASS;
 
+
+
 ?>
 <!DOCTYPE html>
 <html>
 <?php
   $pageTitle = "shop";
-  include "php/header.php";
+  include "header.php";
 ?>
 
 <?php
@@ -26,21 +28,26 @@ $dbpass = DBPASS;
 			die("Connection failed: " . mysqli_connect_error());
 		}
 
-		$sql = "SELECT productID, name, description FROM Product";
+		$sql = "SELECT productID, name, description, price FROM Product";
 		$result = mysqli_query($conn, $sql);
+		
 		
 		while($row = mysqli_fetch_assoc($result)) {
         	echo "<br>";
 
         	$imageID = (string) $row["productID"];
-        	echo "ID (String) ".$imageID;
+        
         	echo "<br><br>";
 
-        	$imageLink = "images/".$imageID.".jpeg";
+        	$imageLink = "../images/".$imageID.".jpeg";
         	echo '<img src="'.$imageLink.'" alt="Cover" style=\"width:304px;height:228px;\">';
         	echo "Name: ".$row["name"];
-        	echo "<br>";
-        	echo "Description: ".$row["description"];
+ 
+        	echo "     Description: ".$row["description"];
+        	echo "     Price: $".$row["price"];
+        	echo "    ";
+        	echo "<a href=\"product.php?productID=".$imageID."\">Visit product page</a>";
+        	echo "<br><br>";
 
         	
 
@@ -58,6 +65,6 @@ $dbpass = DBPASS;
 <body>
 
 
-	<?php include 'php/footer.php'; ?>		
+	<?php include 'footer.php'; ?>		
 </body>
 </html>

@@ -12,7 +12,6 @@ else {
 }
 //edit to correct path depending on where files are hosted
 $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
-
 ?>
 
 <html>
@@ -51,6 +50,7 @@ $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
               <ul class="nav nav-pills">
 
                 <li id="Home"><a href="<?php echo $directory;?>/index.php">Home</a></li>
+                <li id="Shop"><a href="<?php echo $directory;?>/php/shop.php">Shop</a></li>
                 <li id="Account"><a href="<?php echo $directory;?>/php/myaccount.php">Account</a></li>
                 <li id="Cart"><a href="<?php echo $directory;?>/php/cart.php">Cart</a></li>
                 <li id="AboutUs"><a href="<?php echo $directory;?>/php/aboutUs.php">About Us</a></li>

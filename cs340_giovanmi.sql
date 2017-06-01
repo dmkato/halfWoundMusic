@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: classmysql.engr.oregonstate.edu:3306
--- Generation Time: May 10, 2017 at 12:05 PM
+-- Generation Time: May 31, 2017 at 07:54 PM
 -- Server version: 10.1.22-MariaDB
--- PHP Version: 7.0.18
+-- PHP Version: 7.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cs340_katod`
+-- Database: `cs340_giovanmi`
 --
 
 -- --------------------------------------------------------
@@ -61,6 +61,7 @@ CREATE TABLE `Brand` (
 
 INSERT INTO `Brand` (`name`, `location`, `description`) VALUES
 ('Fender', 'Corona, California', 'Probably the most famous name in guitars'),
+('Gibson', 'Nashville', 'Gibson Guitar Corporation'),
 ('testBrand', 'Corvallis, OR', 'A little company that doesn\'t exist');
 
 -- --------------------------------------------------------
@@ -86,7 +87,8 @@ CREATE TABLE `Product` (
 --
 
 INSERT INTO `Product` (`productID`, `stock`, `name`, `description`, `price`, `category`, `subCategory`, `restockDate`, `brandName`) VALUES
-(0, 1, '62 Reissue Jazzmaster', '1962 Reissue Fender Jazzmaster in sunburst', '1120.99', 'guitar', 'electric', NULL, 'Fender');
+(0, 1, '62 Reissue Jazzmaster', '1962 Reissue Fender Jazzmaster in sunburst', '1120.99', 'guitar', 'electric', NULL, 'Fender'),
+(5, 9, 'Gibson Les Paul', 'solid body electric', '2000.00', 'guitar', 'electric', NULL, 'Gibson');
 
 -- --------------------------------------------------------
 
@@ -166,8 +168,19 @@ CREATE TABLE `User` (
 -- Dumping data for table `User`
 --
 
-INSERT INTO `User` (`userID`, `email`, `password`, `addressID`, `lastname`, `firstname`) VALUES
-(0, 'testUser@testmail.com', 'insecurePassword', 0, 'Smith', 'John');
+INSERT INTO `User` (`userID`, `email`, `password`, `lastname`, `firstname`, `addressID`) VALUES
+(0, 'testUser@testmail.com', 'insecurePassword', 'Smith', 'John', 0),
+(1, 'mjones@gmail.com', 'fa392007b117da9b7de02020c9205bab', 'jones', 'mike', 0),
+(2, 'jbat@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '', '', 0),
+(3, 'testuser@gmail.com', 'd41d8cd98f00b204e9800998ecf8427e', '', '', 0),
+(5, 'sam@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'sam', 'white', 0),
+(6, 'jstein@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'john', 'stein', 0),
+(7, 'ghj@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'gh', 'ghj', 0),
+(8, 'amay@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'april', 'may', 0),
+(9, 'smcduck@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'scrouge', 'mcduck', 0),
+(10, 'gstein@gmail.com', 'f1c06bb400656f146da09feb13868adc', 'gertrude', 'stein', 0),
+(11, 'asdfgh', 'f1c06bb400656f146da09feb13868adc', 'asd', 'asdfg', 0),
+(12, 'o;iho;ih', 'f1c06bb400656f146da09feb13868adc', 'yu', 'p;ioh', 0);
 
 --
 -- Indexes for dumped tables
@@ -197,7 +210,7 @@ ALTER TABLE `Product`
 -- Indexes for table `Purchase`
 --
 ALTER TABLE `Purchase`
-  ADD PRIMARY KEY (`productID`, `transactionID`),
+  ADD PRIMARY KEY (`productID`,`transactionID`),
   ADD KEY `productID` (`productID`),
   ADD KEY `transactionID` (`transactionID`);
 
@@ -237,7 +250,7 @@ ALTER TABLE `Address`
 -- AUTO_INCREMENT for table `Product`
 --
 ALTER TABLE `Product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `Review`
 --
@@ -252,45 +265,43 @@ ALTER TABLE `Transaction`
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- Constraints for dumped tables
+--
 
-  --
-  -- Constraints for dumped tables
-  --
+--
+-- Constraints for table `Product`
+--
+ALTER TABLE `Product`
+  ADD CONSTRAINT `Product_ibfk_1` FOREIGN KEY (`brandName`) REFERENCES `Brand` (`name`) ON DELETE CASCADE;
 
-  --
-  -- Constraints for table `Product`
-  --
-  ALTER TABLE `Product`
-    ADD CONSTRAINT `Product_ibfk_1` FOREIGN KEY (`brandName`) REFERENCES `Brand` (`name`) ON DELETE CASCADE;
+--
+-- Constraints for table `Purchase`
+--
+ALTER TABLE `Purchase`
+  ADD CONSTRAINT `Purchase_ibfk_1` FOREIGN KEY (`productID`) REFERENCES `Product` (`productID`),
+  ADD CONSTRAINT `Purchase_ibfk_2` FOREIGN KEY (`transactionID`) REFERENCES `Transaction` (`transactionID`);
 
-  --
-  -- Constraints for table `Purchase`
-  --
-  ALTER TABLE `Purchase`
-    ADD CONSTRAINT `Purchase_ibfk_1` FOREIGN KEY (`productID`) REFERENCES `Product` (`productID`),
-    ADD CONSTRAINT `Purchase_ibfk_2` FOREIGN KEY (`transactionID`) REFERENCES `Transaction` (`transactionID`);
-
-  --
-  -- Constraints for table `Review`
-  --
+--
+-- Constraints for table `Review`
+--
 ALTER TABLE `Review`
-    ADD CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`) ON DELETE CASCADE;
-ALTER TABLE `Review`
-    ADD CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `Product` (`productID`) ON DELETE CASCADE;
+  ADD CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `Product` (`productID`) ON DELETE CASCADE;
 
-  --
-  -- Constraints for table `Transaction`
-  --
-  ALTER TABLE `Transaction`
-    ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`);
+--
+-- Constraints for table `Transaction`
+--
+ALTER TABLE `Transaction`
+  ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`);
 
-  --
-  -- Constraints for table `User`
-  --
-  ALTER TABLE `User`
-    ADD CONSTRAINT `User_ibfk_1` FOREIGN KEY (`addressID`) REFERENCES `Address` (`addressID`);
-  COMMIT;
+--
+-- Constraints for table `User`
+--
+ALTER TABLE `User`
+  ADD CONSTRAINT `User_ibfk_1` FOREIGN KEY (`addressID`) REFERENCES `Address` (`addressID`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
