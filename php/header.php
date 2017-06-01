@@ -1,12 +1,14 @@
 <?php
-session_start();
+  // session_start();
+
+
 if($_SESSION["username"] == "Not logged in") {
   $username = "";
-  
+
 }
 else {
   $username = $_SESSION["username"];
-  
+
 }
 
 ?>
@@ -19,11 +21,11 @@ else {
   <script>
     var pageTitle = "<?php echo $pageTitle;?>";
   </script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="styles/bootstrap.min.css">
-  <link rel="stylesheet" href="styles/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
 </head>
@@ -45,14 +47,15 @@ else {
               </div>
 
               <ul class="nav nav-pills">
-                <li id="Home"><a href="index.php">Home</a></li>
-                <li id="Shop"><a href="shop.php">Shop</a></li>
-                <li id="Account"><a href="myaccount.php">Account</a></li>
-                <li id="Cart"><a href="#">Cart</a></li>
-                <li id="AboutUs"><a href="#">About Us</a></li>
-                <li id="Signup"><a href="signup">Sign Up</a></li>
-                <li id="Login"><a href="login.php">Login</a></li>
-                <li id="Myaccount"><a href="logout.php">Logout</a></li>
+
+                <li id="Home"><a href="/index.php">Home</a></li>
+                <li id="Account"><a href="/php/myaccount.php">Account</a></li>
+                <li id="Cart"><a href="/php/cart.php">Cart</a></li>
+                <li id="AboutUs"><a href="/php/aboutUs.php">About Us</a></li>
+                <li id="Signup"><a href="/php/signup.php">Sign Up</a></li>
+                <li id="Login"><a href="/php/login.php">Login</a></li>
+                <li id="Myaccount"><a href="/php/logout.php">Logout</a></li>
+
               </ul>
             </div>
 
