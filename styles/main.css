@@ -27,3 +27,11 @@ header {
     padding: 10px;
     width: 100%;
 }
+
+#shopName, #greeting {
+    padding: 15px;
+}
+
+.productRow {
+    padding: 10px;
+}

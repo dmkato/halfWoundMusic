@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
 <?php
   $pageTitle = "accountProcess";
   include "header.php";
 ?>
+<!DOCTYPE html>
+<html>
 <body>
 
 
