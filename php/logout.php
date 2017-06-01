@@ -8,17 +8,14 @@ $_SESSION["username"]="Not logged in";
 <html>
 <?php
   $pageTitle = "logout";
-  include "php/header.php";
+  include "header.php";
 ?>
 <body>
-	<?php include 'header.php'; ?>
-
-	<?php include 'navigation.php';	?>
 
 	<br>
 	<h5>Your account has been logged out</h5>
 	<br>
-	
-	<?php include 'php/footer.php'; ?>		
+
+	<?php include 'footer.php'; ?>
 </body>
 </html>

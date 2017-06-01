@@ -42,9 +42,9 @@ mysqli_close($conn);
 <body>
 <?php
   $pageTitle = "loginprocess";
-  include "php/header.php";
+  include "header.php";
 ?>
-	
+
 	<br>
 
 
@@ -67,6 +67,6 @@ mysqli_close($conn);
 //echo "Welcome " . $_SESSION["username"] . ".<br>";
 	?>
 	<br>
-	<?php include 'php/footer.php'; ?>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

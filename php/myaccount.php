@@ -12,7 +12,7 @@ $dbpass = DBPASS;
 <html>
 <?php
   $pageTitle = "myaccount";
-  include "php/header.php";
+  include "header.php";
 ?>
 <body>
 
@@ -26,7 +26,7 @@ $dbpass = DBPASS;
 		echo "<br><br>";
 	}
 	else {
-		
+
 		// Create connection
 		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
@@ -37,7 +37,7 @@ $dbpass = DBPASS;
 
 		$sql = "SELECT email, lastname, firstname FROM User WHERE email='$username'";
 		$result = mysqli_query($conn, $sql);
-		
+
 		while($row = mysqli_fetch_assoc($result)) {
         	echo "<br>";
         	echo "Email: ".$row["email"];
@@ -58,6 +58,6 @@ $dbpass = DBPASS;
 
 	?>
 
-	<?php include 'php/footer.php'; ?>		
+	<?php include 'footer.php'; ?>
 </body>
 </html>
