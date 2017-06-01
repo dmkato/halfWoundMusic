@@ -46,7 +46,7 @@ else {
 
               <ul class="nav nav-pills">
                 <li id="Home"><a href="index.php">Home</a></li>
-                <li id="Shop"><a href="#">Shop</a></li>
+                <li id="Shop"><a href="shop.php">Shop</a></li>
                 <li id="Account"><a href="myaccount.php">Account</a></li>
                 <li id="Cart"><a href="#">Cart</a></li>
                 <li id="AboutUs"><a href="#">About Us</a></li>
