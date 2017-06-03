@@ -18,7 +18,7 @@
 		<?php
 		$username = $_SESSION["username"];
 		if ($_SESSION["username"] == "Not logged in") {
-			echo "Please login to see account information";
+			echo "Please <a href='/index.php'>login</a> to see account information";
 			echo "<br><br>";
 		} else {
 

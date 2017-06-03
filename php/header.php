@@ -51,17 +51,20 @@ $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
                 <li id="Home"><a href="<?php //echo $directory;?>/index.php">Home</a></li>
                 <li id="Account"><a href="<?php //echo $directory;?>/php/myaccount.php">Account</a></li>
                 <li id="Cart"><a href="<?php //echo $directory;?>/php/cart.php">Cart</a></li>
-                <li id="AboutUs"><a href="<?php //echo $directory;?>/php/aboutUs.php">About Us</a></li>
                 <li id="Signup"><a href="/php/signup.php">Sign Up</a></li>
-                <li id="Login"><a href="<?php ////echo $directory;?>/php/login.php">Login</a></li>
                 <li id="Myaccount"><a href="<?php //echo $directory;?>/php/logout.php">Logout</a></li>
 
               </ul>
             </div>
 
-            <div class="col-md-2 align-middle">
+            <div id="greeting" class="col-md-2 align-middle">
               <h4 class="text-center">Welcome, </h4>
               <h4 class="text-center"><?php echo "$username"; ?></h4>
+              <!-- <?php
+                if ($username == "Guest") {
+                  echo "<h4 class='text-center'><a href='/index.php'>Login</a></h4>";
+                }
+              ?> -->
             </div>
 
           </nav>

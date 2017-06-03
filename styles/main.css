@@ -2,34 +2,86 @@ h1, h2, h3, h4, h5, h6, a, p, div  {
     font-family: "Open Sans";
 }
 
-h1 {}
-
-body {
-    /*background-color: rgba(83, 104, 120, 0.11);*/
+h1, h2, h3, h4, h5, h6, p, div {
+    color: #345;
 }
 
-.middleMenus {
-    border-right: #ACD outset thin;
+#contentBlock {
+    padding-top: 10px;
+}
+
+#signupForm {
+    padding: 5px 15% 20px 15%;
+}
+
+ul {
+    list-style: none;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+li, a {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+body {
+    background-color: #f3f3f3;
 }
 
 #searchBar {
     margin-right: 10%;
 }
 
+form input {
+    width: 100%;
+}
+
+#formContainer {
+    margin: 0;
+    padding: 0;
+}
+
+.form-control {
+    border: 0;
+}
+
+.btn-default {
+    border: 0;
+}
+
 header {
-    padding: 15px 0 10px 0;
-    background-color: #eee;
+    padding: 15px 0 2px 0;
+
+    background-color: #ececec;
 }
 
 .navbar-fixed-bottom {
-    background-color: #eee;
+    background-color: #ececec;
     margin: 0;
     padding: 10px;
     width: 100%;
 }
 
-#shopName, #greeting {
-    padding: 15px;
+#shopName {
+    padding: 10px;
+    margin: 0px;
+}
+
+#greeting {
+    padding: 0px;
+}
+
+h1 {
+    padding: 0px;
+    margin: 0px;
+}
+
+h4 {
+    padding: 4px;
+    margin: 0px;
 }
 
 .productRow {

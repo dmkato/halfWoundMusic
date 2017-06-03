@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+  <div class="container">
 
 
 	<?php
@@ -72,7 +73,7 @@
 
 	mysqli_close($conn);
 	?>
-
+</div>
 
 	<?php include 'footer.php'; ?>
 </body>
