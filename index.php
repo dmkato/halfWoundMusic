@@ -32,50 +32,48 @@ $dbpass = DBPASS;
 
       while($row = mysqli_fetch_assoc($result)) {
         $imageID = (string) $row["productID"];
-        $imageLink = "../images/".$imageID.".jpeg";
+        $imageLink = "images/".$imageID.".jpeg";
 
         echo "<div class='centered'>";
-        echo "<div class='productRow row'>";
-        echo "<div class='col-md-2'>";
-        echo "<img src=".$imageLink." alt='Cover' style='width:100%; height:100%;'>";
-        echo "</div><div class='col-md-7'>";
-        echo "Name: ".$row["name"];
-        echo "     Description: ".$row["description"];
-        echo "     Price: $".$row["price"];
-        echo "<a class='btn btn-sm' href='/php/product.php?productID=".$imageID."'>Visit product page</a>";
-        echo "</div></div><br>";
+        echo  "<div class='productRow row'>";
+        echo    "<div class='col-md-2'>";
+        echo      "<img src=".$imageLink." alt='Cover' style='width:100%; height:100%;'>";
+        echo    "</div>";
+        echo    "<div class='col-md-7'>";
+        echo      "Name: ".$row["name"];
+        echo      "Description: ".$row["description"];
+        echo      "Price: $".$row["price"];
+        echo      "<a class='btn btn-sm' href='/php/product.php?productID=".$imageID."'>Visit product page</a>";
+        echo    "</div>";
+        echo   "</div><br>";
       }
 
       mysqli_close($conn);
 
-      echo "<br><br>";
-      ?>
-    </div>
+      echo "<br><br></div></div></div>";
 
-    <?php if ($username == "Guest"): ?>
-      <div id="formContainer" class="col-md-3">
-        <form id="signupForm" action = "php/loginProcess.php" method="post" onsubmit="return formvalidate(this);">
+      if ($username == "Guest") {
+        echo "<div id='formContainer' class='col-md-3'>
+          <form id='signupForm' action = 'php/loginProcess.php' method='post' onsubmit='return formvalidate(this);'>
 
-          <h3>Login</h3>
-          <div id="emailField" class="form-group">
-            <input type="email" name="user" class="form-control" id="email" placeholder="Email">
-          </div>
-          <div id="passwordField" class="form-group">
-            <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
-          </div>
-          <div>
-            <input id="submitButton" type="submit" class="btn btn-default">
-            <span id="ajaxStatus"></span>
-          </div>
+            <h3>Login</h3>
+            <div id='emailField' class='form-group'>
+              <input type='email' name='user' class='form-control' id='email' placeholder='Email'>
+            </div>
+            <div id='passwordField' class='form-group'>
+              <input type='password' name='password' class='form-control' id='userpassword' placeholder='Password'>
+            </div>
+            <div>
+              <input id='submitButton' type='submit' class='btn btn-default'>
+              <span id='ajaxStatus'></span>
+            </div>
 
-        </form>
-      </div>
-    <?php endif; ?>
-
+          </form>
+        </div>";
+      }
+      echo "</div>";
+      include 'php/footer.php';
+    ?>
     <br><br><br>
-  </div>
-</div>
-
-<?php include 'php/footer.php'; ?>
 </body>
 </html>
