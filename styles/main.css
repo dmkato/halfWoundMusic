@@ -42,6 +42,10 @@ body {
     background-color: #f3f3f3;
 }
 
+.centered {
+    margin: auto;
+}
+
 #searchBar {
     margin-right: 10%;
 }

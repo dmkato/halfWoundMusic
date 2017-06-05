@@ -34,10 +34,11 @@ $dbpass = DBPASS;
         $imageID = (string) $row["productID"];
         $imageLink = "../images/".$imageID.".jpeg";
 
+        echo "<div class='centered'>";
         echo "<div class='productRow row'>";
-        echo "<div class='col-md-4'>";
+        echo "<div class='col-md-2'>";
         echo "<img src=".$imageLink." alt='Cover' style='width:100%; height:100%;'>";
-        echo "</div><div class='col-md-8'>";
+        echo "</div><div class='col-md-7'>";
         echo "Name: ".$row["name"];
         echo "     Description: ".$row["description"];
         echo "     Price: $".$row["price"];
@@ -56,13 +57,12 @@ $dbpass = DBPASS;
         <form id="signupForm" action = "php/loginProcess.php" method="post" onsubmit="return formvalidate(this);">
 
           <h3>Login</h3>
-          <div type="email" id="emailField" class="form-group">
-            <input name="user" class="form-control" id="email" placeholder="Email">
+          <div id="emailField" class="form-group">
+            <input type="email" name="user" class="form-control" id="email" placeholder="Email">
           </div>
           <div id="passwordField" class="form-group">
             <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
           </div>
-
           <div>
             <input id="submitButton" type="submit" class="btn btn-default">
             <span id="ajaxStatus"></span>

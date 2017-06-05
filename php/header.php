@@ -7,7 +7,7 @@ if($_SESSION["username"] == "Not logged in") {
   $username = $_SESSION["username"];
 }
 //edit to correct path depending on where files are hosted
-$directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
+$directory = "~katod/halfWoundMusic/";
 ?>
 
 <html>
@@ -18,11 +18,11 @@ $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
   <script>
     var pageTitle = "<?php echo $pageTitle;?>";
   </script>
-  <script src="<?php //echo $directory;?>/js/jquery.min.js"></script>
-  <script src="<?php //echo $directory;?>/js/main.js"></script>
-  <script src="<?php //echo $directory;?>/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="<?php //echo $directory;?>/styles/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php //echo $directory;?>/styles/main.css">
+  <script src="<?php echo $directory;?>/js/jquery.min.js"></script>
+  <script src="<?php echo $directory;?>/js/main.js"></script>
+  <script src="<?php echo $directory;?>/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="<?php echo $directory;?>/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $directory;?>/styles/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
 
 </head>
@@ -45,10 +45,10 @@ $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";
 
               <ul class="nav nav-pills">
 
-                <li id="Home"><a href="<?php //echo $directory;?>/index.php">Home</a></li>
-                <li id="Account"><a href="<?php //echo $directory;?>/php/myaccount.php">Account</a></li>
-                <li id="Signup"><a href="/php/signup.php">Sign Up</a></li>
-                <li id="Myaccount"><a href="<?php //echo $directory;?>/php/logout.php">Logout</a></li>
+                <li id="Home"><a href="<?php echo $directory;?>/index.php">Home</a></li>
+                <li id="Account"><a href="<?php echo $directory;?>/php/myaccount.php">Account</a></li>
+                <li id="Signup"><a href="<?php echo $directory;?>"/php/signup.php">Sign Up</a></li>
+                <li id="Myaccount"><a href="<?php echo $directory;?>/php/logout.php">Logout</a></li>
 
               </ul>
             </div>
