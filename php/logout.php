@@ -12,9 +12,11 @@ $_SESSION["username"]="Not logged in";
 ?>
 <body>
 
+  <div class="container">
 	<br>
 	<h5>Your account has been logged out</h5>
 	<br>
+  </div>
 
 	<?php include 'footer.php'; ?>
 </body>
