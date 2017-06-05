@@ -46,8 +46,8 @@ $dbpass = DBPASS;
           echo "</div>";
           echo "<div class='col-md-8'><ul>";
           echo "<li><h3>".$row["name"]."<span class='price'>$".$row["price"]."</span></h3></li>";
-        	echo "<li>".$row["description"]."</li>";
-          echo "<li><a href='purchase.php?productID=".$productID."&productName=".$row["name"]."' class='btn btn-default'>Purchase</a></li>";
+        	echo "<li>".$row["description"];
+          echo "<span class='purchaseBtnSpan'><a href='purchase.php?productID=".$productID."&productName=".$row["name"]."' class='btn btn-default purchaseBtn'>Purchase</a></span></li>";
           echo "</ul></div>";
         	echo "<br><br>";
 		}

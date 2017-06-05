@@ -21,7 +21,7 @@
 
   // Get product ID from link
   $productID = $_GET["productID"];
-  $userName = $_SESSION["username"];
+  $email = $_SESSION["email"];
 
   //check logged in
   if ($userName == "Not logged in") {
@@ -29,14 +29,21 @@
   } else {
 
   // Get userID
-  $sql = "SELECT userID FROM User WHERE email='".$userName."'";
+  $sql = "SELECT userID FROM User WHERE email='".$email."'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   $userID = $row["userID"];
 
+  // Check if transaction is open for the day
+  $sql = "SELECT * FROM Transaction WHERE userID = '".$userID."' AND purchaseDate = '".date('m/d/y')."'";
+  $result = mysqli_query($conn, $sql);
+  $numRows = mysqli_num_rows($result);
+
   // Create transaction
-  $sql = "INSERT INTO Transaction (purchaseDate, userID) VALUES ('".date('m/d/y')."', ".$userID.")";
-  mysqli_query($conn, $sql);
+  if ($numRows == 0) {
+    $sql = "INSERT INTO Transaction (purchaseDate, userID) VALUES ('".date('m/d/y')."', ".$userID.")";
+    mysqli_query($conn, $sql);
+  }
 
   // Get transactionID
   $sql = "SELECT transactionID FROM Transaction WHERE userID=".$userID." AND purchaseDate='".date('m/d/y')."'";

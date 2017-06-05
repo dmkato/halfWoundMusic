@@ -41,9 +41,8 @@ $dbpass = DBPASS;
         echo "Name: ".$row["name"];
         echo "     Description: ".$row["description"];
         echo "     Price: $".$row["price"];
-        echo "    ";
         echo "<a href='/php/product.php?productID=".$imageID."'>Visit product page</a>";
-        echo "</div></div>";
+        echo "</div></div><br>";
       }
 
       mysqli_close($conn);
@@ -51,7 +50,6 @@ $dbpass = DBPASS;
       echo "<br><br>";
       ?>
     </div>
-
 
     <?php if ($username == "Guest"): ?>
       <div id="formContainer" class="col-md-3">

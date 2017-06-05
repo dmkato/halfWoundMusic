@@ -1,14 +1,10 @@
 <?php
   session_start();
 
-
-echo $username;
 if($_SESSION["username"] == "Not logged in") {
   $username = "Guest";
-
 } else {
   $username = $_SESSION["username"];
-
 }
 //edit to correct path depending on where files are hosted
 $directory = "http://web.engr.oregonstate.edu/~giovanmi/dbs/halfWoundMusic";

@@ -44,15 +44,13 @@
 		echo "<br>";
 
 		echo "<br>";
-		$_SESSION["username"] = $theemail;
+		$_SESSION["username"] = $thefirstName;
 
 		//hash password
-    echo $thepassword;
 		$thepassword = md5($thepassword);
-    echo $thepassword;
 
 		//insert info
-		$sql = "INSERT INTO User (email, password, lastname, firstname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
+		$sql = "INSERT INTO User (email, password, firstname, lastname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Your account information has been saved!";
