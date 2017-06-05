@@ -26,6 +26,7 @@
   //hash password
   $thepassword = md5($thepassword);
 
+
   //select username + password from table
   $sql = "SELECT email FROM User WHERE email='$theusername' and password='$thepassword'";
   $result = mysqli_query($conn, $sql);

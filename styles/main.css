@@ -14,12 +14,18 @@ h1, h2, h3, h4, h5, h6, p, div {
     padding: 5px 15% 20px 15%;
 }
 
+.price {
+    font-size: 80%;
+    padding: 0 30px 0 30px;
+}
+
 ul {
     list-style: none;
 }
 
 h3 {
     margin-top: 10px;
+    padding-top: 10px;
 }
 
 li, a {
@@ -35,13 +41,14 @@ body {
     margin-right: 10%;
 }
 
-form input {
+#submitButton {
     width: 100%;
 }
 
 #formContainer {
     margin: 0;
     padding: 0;
+    background-color: #ececec;
 }
 
 .form-control {
@@ -54,7 +61,6 @@ form input {
 
 header {
     padding: 15px 0 2px 0;
-
     background-color: #ececec;
 }
 

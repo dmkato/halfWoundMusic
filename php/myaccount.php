@@ -40,8 +40,10 @@
 	        	echo "First name: ".$row["firstname"];
 	        	echo "<br><br>";
 	        	echo "Last name: ".$row["lastname"];
-
 			}
+
+			// Select Purchases
+			echo "<p>Purchases Will appear in a new row here</p>";
 
 			mysqli_close($conn);
 

@@ -53,24 +53,27 @@ $dbpass = DBPASS;
     </div>
 
 
-    <div id="formContainer" class="col-md-3">
-      <form id="signupForm" action = "php/loginProcess.php" method="post" onsubmit="return formvalidate(this);">
+    <?php if ($username == "Guest"): ?>
+      <div id="formContainer" class="col-md-3">
+        <form id="signupForm" action = "php/loginProcess.php" method="post" onsubmit="return formvalidate(this);">
 
-        <h3>Login</h3>
-        <div id="emailField" class="form-group">
-          <input name="user" class="form-control" id="email" placeholder="Email">
-        </div>
-        <div id="passwordField" class="form-group">
-          <input name="password" class="form-control" id="userpassword" placeholder="Password">
-        </div>
+          <h3>Login</h3>
+          <div type="email" id="emailField" class="form-group">
+            <input name="user" class="form-control" id="email" placeholder="Email">
+          </div>
+          <div id="passwordField" class="form-group">
+            <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
+          </div>
 
-        <div>
-          <input id="submitButton" type="submit" class="btn btn-default">
-          <span id="ajaxStatus"></span>
-        </div>
+          <div>
+            <input id="submitButton" type="submit" class="btn btn-default">
+            <span id="ajaxStatus"></span>
+          </div>
 
-      </form>
-    </div>
+        </form>
+      </div>
+    <?php endif; ?>
+
     <br><br><br>
   </div>
 </div>

@@ -22,7 +22,6 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$theusername = $_POST["email"];
 	//check username
 	//sanitize inputs
 	$theusername = mysqli_real_escape_string($conn, $_POST["email"]);
@@ -32,7 +31,6 @@
 	$rows = mysqli_num_rows($result);
 	if($rows!=1)
 	{
-
 
 		$thepassword = htmlspecialchars($_POST["password"]);
 		$thefirstName = htmlspecialchars($_POST["first"]);
@@ -49,7 +47,9 @@
 		$_SESSION["username"] = $theemail;
 
 		//hash password
+    echo $thepassword;
 		$thepassword = md5($thepassword);
+    echo $thepassword;
 
 		//insert info
 		$sql = "INSERT INTO User (email, password, lastname, firstname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
