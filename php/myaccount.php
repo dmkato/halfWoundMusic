@@ -47,18 +47,11 @@
 			echo "</div>";
 
 			// Select Purchases
-			$sql = "SELECT brandName, name
+			$sql = "SELECT Product.brandName, Product.name, Transaction.purchaseDate
 							FROM Product
-							WHERE productID
-							IN (
-								SELECT productID
-								FROM Purchase
-								WHERE transactionID = (
-									SELECT transactionID
-									FROM Transaction
-									WHERE userID = ".$userID."
-								)
-							)";
+							INNER JOIN Purchase ON Product.productID = Purchase.productID
+							INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
+							WHERE Transaction.userID = ".$userID;
 			$result = mysqli_query($conn, $sql);
 			echo "<div class='col-md-6 text-center'>";
 			echo "<h3>Purchases</h3>";
@@ -70,7 +63,7 @@
 			// Print purchases to screen
 			while ($row = mysqli_fetch_assoc($result)) {
 				echo "<tr>";
-				echo "<td>date</td>";
+				echo "<td>".$row["purchaseDate"]."</td>";
 				echo "<td>".$row["brandName"]." ".$row["name"]."</td>";
 				echo "<td>1</td>";
 				echo "</tr>";

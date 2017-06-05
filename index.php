@@ -41,7 +41,7 @@ $dbpass = DBPASS;
         echo "Name: ".$row["name"];
         echo "     Description: ".$row["description"];
         echo "     Price: $".$row["price"];
-        echo "<a href='/php/product.php?productID=".$imageID."'>Visit product page</a>";
+        echo "<a class='btn btn-sm' href='/php/product.php?productID=".$imageID."'>Visit product page</a>";
         echo "</div></div><br>";
       }
 
