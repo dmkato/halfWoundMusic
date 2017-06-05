@@ -294,7 +294,7 @@ ALTER TABLE `Review`
 -- Constraints for table `Transaction`
 --
 ALTER TABLE `Transaction`
-  ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`);
+  ADD CONSTRAINT `Transaction_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`) ON DELETE CASCADE;;
 
 --
 -- Constraints for table `User`

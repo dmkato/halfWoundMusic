@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+  <div class="container">
 
 
 	<?php
@@ -21,7 +22,6 @@
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
-	$theusername = $_POST["email"];
 	//check username
 	//sanitize inputs
 	$theusername = mysqli_real_escape_string($conn, $_POST["email"]);
@@ -31,7 +31,6 @@
 	$rows = mysqli_num_rows($result);
 	if($rows!=1)
 	{
-
 
 		$thepassword = htmlspecialchars($_POST["password"]);
 		$thefirstName = htmlspecialchars($_POST["first"]);
@@ -45,13 +44,13 @@
 		echo "<br>";
 
 		echo "<br>";
-		$_SESSION["username"] = $theemail;
+		$_SESSION["username"] = $thefirstName;
 
 		//hash password
 		$thepassword = md5($thepassword);
 
 		//insert info
-		$sql = "INSERT INTO User (email, password, lastname, firstname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
+		$sql = "INSERT INTO User (email, password, firstname, lastname) VALUES ('$theemail', '$thepassword', '$thefirstName', '$thelastName')";
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Your account information has been saved!";
@@ -72,7 +71,7 @@
 
 	mysqli_close($conn);
 	?>
-
+</div>
 
 	<?php include 'footer.php'; ?>
 </body>
