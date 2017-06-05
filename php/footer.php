@@ -1,16 +1,3 @@
-<?php
-// session_start();
-// if($_SESSION["username"] == "Not logged in") {
-//   $username = "";
-//
-// }
-// else {
-//   $username = $_SESSION["username"];
-//
-// }
-
-?>
-
 </body>
 <footer>
   <div class="container navbar navbar-fixed-bottom">
