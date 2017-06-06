@@ -2,8 +2,8 @@
 <footer>
   <div class="container navbar navbar-fixed-bottom">
       <ul class="list-inline text-center">
-        <li><?php echo "$username"; ?></li>
-        <li><a href="#">Legal</a></li>
+        <li>Halfwound Music</li>
+        <li><a href="#">All Rights Reserved</a></li>
       </ul>
   </div>
 </footer>

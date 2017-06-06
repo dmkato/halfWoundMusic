@@ -17,8 +17,14 @@ $dbpass = DBPASS;
 
 <div id="contentBlock" class="container">
   <div class="row">
-    <div class="col-md-9">
       <?php
+
+      // Create column
+      if ($username == "Guest") {
+        echo "<div class='productContainer col-md-9'>";
+      } else {
+        echo "<div class='productContainer'>";
+      }
 
       // Create connection
       $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -36,14 +42,12 @@ $dbpass = DBPASS;
 
         echo "<div class='centered'>";
         echo  "<div class='productRow row'>";
-        echo    "<div class='col-md-2'>";
-        echo      "<img src=".$imageLink." alt='Cover' style='width:100%; height:100%;'>";
+        echo    "<div class='col-md-3 text-center'>";
+        echo      "<img src=".$imageLink." alt='Cover' style='width:100%; height:auto;'>";
         echo    "</div>";
-        echo    "<div class='col-md-7'>";
-        echo      "Name: ".$row["name"];
-        echo      "Description: ".$row["description"];
-        echo      "Price: $".$row["price"];
-        echo      "<a class='btn btn-sm' href='".$directory."/php/product.php?productID=".$imageID."'>Visit product page</a>";
+        echo    "<div class='col-md-9'>";
+        echo      "<a href='".$directory."/php/product.php?productID=".$imageID."'><h3> ".$row["name"]."</h3>";
+        echo      " $".$row["price"]."</a>";
         echo    "</div>";
         echo   "</div><br>";
       }

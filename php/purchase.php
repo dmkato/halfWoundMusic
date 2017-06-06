@@ -24,8 +24,8 @@
   $email = $_SESSION["email"];
 
   //check logged in
-  if ($userName == "Not logged in") {
-    $message =  "Please log in";
+  if ($_SESSION["username"] == "Not logged in") {
+    $message =  "Please <a href='".$directory."/index.php'>Log in</a>";
   } else {
 
   // Get userID

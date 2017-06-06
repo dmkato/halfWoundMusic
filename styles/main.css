@@ -72,12 +72,13 @@ header {
     width: 100%;
 }
 
-.purchaseBtnSpan {
-    padding: 0 5px 0 5px;
+.productContainer {
+    padding: 0 100px 0 100px;
 }
 
 .purchaseBtn {
-    background-color: #e0e9e0
+    background-color: #e0e9e0;
+    margin: 10px 0 10px 0;
 }
 
 #shopName {
