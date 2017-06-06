@@ -51,7 +51,8 @@
 							FROM Product
 							INNER JOIN Purchase ON Product.productID = Purchase.productID
 							INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
-							WHERE Transaction.userID = ".$userID;
+							WHERE Transaction.userID = ".$userID."
+							ORDER BY Transaction.purchaseDate";
 			$result = mysqli_query($conn, $sql);
 			echo "<div class='col-md-6 text-center'>";
 			echo "<h3>Purchases</h3>";
