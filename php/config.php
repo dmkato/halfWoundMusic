@@ -1,15 +1,15 @@
 <?php
 
 // Michael's db
-// define('DBHOST', 'classmysql.engr.oregonstate.edu');
-// define('DBNAME', 'cs340_giovanmi');
-// define('DBUSER', 'cs340_giovanmi');
-// define('DBPASS', '1078');
+// $dbhost = "classmysql.engr.oregonstate.edu";
+// $dbname = "cs340_giovanmi";
+// $dbuser = "cs340_giovanmi";
+// $dbpass = "1078";
 
 // Daniel's db
-define('DBHOST', 'classmysql.engr.oregonstate.edu');
-define('DBNAME', 'cs340_katod');
-define('DBUSER', 'cs340_katod');
-define('DBPASS', 'Cri6cket');
+$dbhost = "classmysql.engr.oregonstate.edu";
+$dbname = "cs340_katod";
+$dbuser = "cs340_katod";
+$dbpass = "Cri6cket";
 
 ?>

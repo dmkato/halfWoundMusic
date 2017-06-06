@@ -48,7 +48,6 @@ $directory = "/~katod/halfWoundMusic";
 
                 <li id="Home"><a href="<?php echo $directory;?>/index.php">Home</a></li>
                 <li id="Account"><a href="<?php echo $directory;?>/php/myaccount.php">Account</a></li>
-                <li id="Signup"><a href="<?php echo $directory;?>/php/signup.php">Sign Up</a></li>
                 <li id="Myaccount"><a href="<?php echo $directory;?>/php/logout.php">Logout</a></li>
 
               </ul>

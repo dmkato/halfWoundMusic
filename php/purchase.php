@@ -1,12 +1,7 @@
 <?php
   $pageTitle = "Purchase";
   include "header.php";
-
   include 'config.php';
-  $dbhost = DBHOST;
-  $dbname = DBNAME;
-  $dbuser = DBUSER;
-  $dbpass = DBPASS;
 
   // Create connection
   $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
@@ -16,17 +11,18 @@
     die("Connection failed: " . mysqli_connect_error());
   }
 
-  // Set TImezone
+  // Set Timezone
   date_default_timezone_set('America/Los_Angeles');
 
   // Get product ID from link
   $productID = $_GET["productID"];
   $email = $_SESSION["email"];
 
-  //check logged in
-  if ($_SESSION["username"] == "Not logged in") {
-    $message =  "Please <a href='".$directory."/index.php'>Log in</a>";
-  } else {
+  // Sanitize post Vars
+  $street = mysqli_real_escape_string($conn, htmlspecialchars($_POST["address"]));
+  $city = mysqli_real_escape_string($conn, htmlspecialchars($_POST["city"]));
+  $zipcode = mysqli_real_escape_string($conn, htmlspecialchars($_POST["zipcode"]));
+  $country = mysqli_real_escape_string($conn, htmlspecialchars($_POST["country"]));
 
   // Get userID
   $sql = "SELECT userID
@@ -35,6 +31,22 @@
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
   $userID = $row["userID"];
+
+  // Check if user Address exists
+  $sql = "SELECT addressID
+          FROM User
+          WHERE userID = '".$userID;
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_assoc($result);
+
+  // Add address if one doesnt exist
+  if ($row["addressID"] == NULL) {
+    $sql = "INSERT INTO Address (street, city, zipcode, country)
+            VALUES ('".$street."', '".$city."', '".$zipcode."', '".$country."')";
+    $result = mysqli_query($conn, $sql);
+    $sql = // TODO: Store addressID in user table
+  }
+
 
   // Check if transaction is open for the day
   $sql = "SELECT *
@@ -65,8 +77,6 @@
 
   // Insert Purchase into Transaction
   $message = "You purchased a ".$_GET["productName"];
-
-}
   mysqli_close($conn);
 ?>
 

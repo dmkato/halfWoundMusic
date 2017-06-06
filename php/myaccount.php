@@ -3,10 +3,6 @@
 	include "header.php";
 
 	include 'config.php';
-	$dbhost = DBHOST;
-	$dbname = DBNAME;
-	$dbuser = DBUSER;
-	$dbpass = DBPASS;
 ?>
 <!DOCTYPE html>
 <html>

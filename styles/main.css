@@ -76,6 +76,10 @@ header {
     padding: 0 100px 0 100px;
 }
 
+#submitButton {
+    background-color: #e0e9e0;
+}
+
 .purchaseBtn {
     background-color: #e0e9e0;
     margin: 10px 0 10px 0;

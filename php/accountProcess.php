@@ -10,10 +10,6 @@
 
 	<?php
 	include 'config.php';
-	$dbhost = DBHOST;
-	$dbname = DBNAME;
-	$dbuser = DBUSER;
-	$dbpass = DBPASS;
 
 	// Create connection
 	$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

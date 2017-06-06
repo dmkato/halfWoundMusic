@@ -1,18 +1,7 @@
 <?php
-session_start();
-
 include 'php/config.php';
-$dbhost = DBHOST;
-$dbname = DBNAME;
-$dbuser = DBUSER;
-$dbpass = DBPASS;
-?>
-
-<!DOCTYPE html>
-<html>
-<?php
-  $pageTitle = "shop";
-  include "php/header.php";
+$pageTitle = "shop";
+include "php/header.php";
 ?>
 
 <div id="contentBlock" class="container">
@@ -33,7 +22,7 @@ $dbpass = DBPASS;
       if (!$conn)
       die("Connection failed: " . mysqli_connect_error());
 
-      $sql = "SELECT productID, name, description, price FROM Product";
+      $sql = "SELECT productID, name, description, price, brandName FROM Product";
       $result = mysqli_query($conn, $sql);
 
       while($row = mysqli_fetch_assoc($result)) {
@@ -46,7 +35,7 @@ $dbpass = DBPASS;
         echo      "<img src=".$imageLink." alt='Cover' style='width:100%; height:auto;'>";
         echo    "</div>";
         echo    "<div class='col-md-9'>";
-        echo      "<a href='".$directory."/php/product.php?productID=".$imageID."'><h3> ".$row["name"]."</h3>";
+        echo      "<a href='".$directory."/php/product.php?productID=".$imageID."'><h3> ".$row["brandName"]." ".$row["name"]."</h3>";
         echo      " $".$row["price"]."</a>";
         echo    "</div>";
         echo   "</div><br>";
@@ -67,6 +56,7 @@ $dbpass = DBPASS;
             <div id='passwordField' class='form-group'>
               <input type='password' name='password' class='form-control' id='userpassword' placeholder='Password'>
             </div>
+            <a href='".$directory."/php/signup.php'>Don't Have an account? Sign up!</a>
             <div>
               <input id='submitButton' type='submit' class='btn btn-default'>
               <span id='ajaxStatus'></span>
