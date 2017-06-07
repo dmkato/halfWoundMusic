@@ -45,6 +45,7 @@
 
 		echo "<br>";
 		$_SESSION["username"] = $thefirstName;
+		$_SESSION["email"] = $theemail;
 
 		//hash password
 		$thepassword = md5($thepassword);

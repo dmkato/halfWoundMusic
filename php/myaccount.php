@@ -1,12 +1,12 @@
 <?php
-	$pageTitle = "myaccount";
-	include "header.php";
+$pageTitle = "myaccount";
+include "header.php";
 
-	include 'config.php';
-	$dbhost = DBHOST;
-	$dbname = DBNAME;
-	$dbuser = DBUSER;
-	$dbpass = DBPASS;
+include 'config.php';
+$dbhost = DBHOST;
+$dbname = DBNAME;
+$dbuser = DBUSER;
+$dbpass = DBPASS;
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,51 +36,51 @@
 			echo "<div class='container row'>";
 			echo "<div class='col-md-6 text-center'>";
 			echo "<h3>Account Information</h3>";
-    	echo "<br><br>";
-    	echo "Email: ".$row["email"];
-    	echo "<br><br>";
-    	echo "First name: ".$row["firstname"];
-    	echo "<br><br>";
-    	echo "Last name: ".$row["lastname"];
+			echo "<br><br>";
+			echo "Email: ".$row["email"];
+			echo "<br><br>";
+			echo "First name: ".$row["firstname"];
+			echo "<br><br>";
+			echo "Last name: ".$row["lastname"];
 			echo "<br><br>";
 			echo "<br><br>";
 			echo "</div>";
 
 			// Select Purchases
 			$sql = "SELECT Product.brandName, Product.name, Transaction.purchaseDate
-							FROM Product
-							INNER JOIN Purchase ON Product.productID = Purchase.productID
-							INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
-							WHERE Transaction.userID = ".$userID."
-							ORDER BY Transaction.purchaseDate";
+			FROM Product
+			INNER JOIN Purchase ON Product.productID = Purchase.productID
+			INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
+			WHERE Transaction.userID = ".$userID."
+			ORDER BY Transaction.purchaseDate";
 			$result = mysqli_query($conn, $sql);
 			echo "<div class='col-md-6 text-center'>";
 			echo "<h3>Purchases</h3>";
 			echo "<br><br>";
 			echo "<table class='table'><thead>
-      <tr><th>Date</th><th>Product</th><th>
-			Quantity</th></tr></thead><tbody>";
+			<tr><th>Date</th><th>Product</th><th>
+				Quantity</th></tr></thead><tbody>";
 
 			// Print purchases to screen
-			while ($row = mysqli_fetch_assoc($result)) {
-				echo "<tr>";
-				echo "<td>".$row["purchaseDate"]."</td>";
-				echo "<td>".$row["brandName"]." ".$row["name"]."</td>";
-				echo "<td>1</td>";
-				echo "</tr>";
+				while ($row = mysqli_fetch_assoc($result)) {
+					echo "<tr>";
+					echo "<td>".$row["purchaseDate"]."</td>";
+					echo "<td>".$row["brandName"]." ".$row["name"]."</td>";
+					echo "<td>1</td>";
+					echo "</tr>";
+				}
+				echo "</table></div>";
+				mysqli_close($conn);
+
 			}
-			echo "</table></div>";
-			mysqli_close($conn);
 
-		}
+			echo "<br><br>";
+			echo "<br><br>";
+			echo "<br><br>";
 
-		echo "<br><br>";
-		echo "<br><br>";
-		echo "<br><br>";
+			include 'footer.php';
 
-		include 'footer.php';
-
-		?>
-	</div>
-</body>
-</html>
+			?>
+		</div>
+	</body>
+	</html>
