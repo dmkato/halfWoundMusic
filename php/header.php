@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-if($_SESSION["username"] == "Not logged in") {
+if($_SESSION["username"] == "") {
   $username = "Guest";
 } else {
   $username = $_SESSION["username"];
