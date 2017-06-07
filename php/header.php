@@ -9,6 +9,9 @@ if($_SESSION["username"] == "Not logged in") {
 
 //edit to correct path depending on where files are hosted
 $directory = "/~katod/halfWoundMusic";
+
+//$directory = "/~giovanmi/dbs/halfWoundMusic";
+
 ?>
 
 <html>
