@@ -12,7 +12,7 @@ include 'config.php';
 	<div class="container text-center">
 		<?php
 		$username = $_SESSION["username"];
-		if ($_SESSION["username"] == "Not logged in") {
+		if ($_SESSION["username"] == "") {
 			echo "Please <a href='".$directory."/index.php'>login</a> to see account information";
 		} else {
 
