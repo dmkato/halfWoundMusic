@@ -7,11 +7,11 @@ include "header.php";
 <body>
 
   <br>
-  <div id="signupForm" class="container">
+  <div class="container Form">
     <br>
     <div id="formContainer" class="text-center">
       <h3>Sign Up</h3>
-      <form id="signupForm" action="accountProcess.php" method="post" onsubmit="return formvalidate(this);">
+      <form class='form' action="accountProcess.php" method="post" onsubmit="return formvalidate(this);">
         <div id="firstNameField" class="form-group">
           <input name="first" class="form-control" id="firstname" placeholder="First Name">
         </div>

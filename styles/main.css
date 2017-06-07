@@ -10,8 +10,12 @@ h1, h2, h3, h4, h5, h6, p, div {
     padding-top: 10px;
 }
 
-#signupForm {
-    padding: 5px 15% 20px 15%;
+.Form {
+    padding: 0 10% 3% 10%;
+}
+
+.addressForm {
+    padding: 1% 5% 1% 5%;
 }
 
 .price {
@@ -66,7 +70,7 @@ header {
 }
 
 .navbar-fixed-bottom {
-    background-color: #ececec;
+    background-color: #ececee;
     margin: 0;
     padding: 10px;
     width: 100%;
@@ -106,4 +110,8 @@ h4 {
 
 .productRow {
     padding: 10px;
+}
+
+.outerForm {
+    padding: 0 10% 10% 10%;
 }

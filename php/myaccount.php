@@ -13,7 +13,7 @@
 		<?php
 		$username = $_SESSION["username"];
 		if ($_SESSION["username"] == "Not logged in") {
-			echo "Please <a href='/index.php'>login</a> to see account information";
+			echo "Please <a href='".$directory."/index.php'>login</a> to see account information";
 		} else {
 
 			// Create connection

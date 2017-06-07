@@ -15,14 +15,19 @@
   date_default_timezone_set('America/Los_Angeles');
 
   // Get product ID from link
-  $productID = $_GET["productID"];
+  $productID = $_POST["productID"];
   $email = $_SESSION["email"];
 
   // Sanitize post Vars
-  $street = mysqli_real_escape_string($conn, htmlspecialchars($_POST["address"]));
-  $city = mysqli_real_escape_string($conn, htmlspecialchars($_POST["city"]));
-  $zipcode = mysqli_real_escape_string($conn, htmlspecialchars($_POST["zipcode"]));
-  $country = mysqli_real_escape_string($conn, htmlspecialchars($_POST["country"]));
+  $street =  htmlspecialchars($_POST["address"]);
+  $city = htmlspecialchars($_POST["city"]);
+  $zipcode =  htmlspecialchars($_POST["zipcode"]);
+  $country =  htmlspecialchars($_POST["country"]);
+
+  $street = mysqli_real_escape_string($conn, $street);
+  $city = mysqli_real_escape_string($conn, $city);
+  $zipcode = mysqli_real_escape_string($conn, $zipcode);
+  $country = mysqli_real_escape_string($conn, $country);
 
   // Get userID
   $sql = "SELECT userID
@@ -35,16 +40,26 @@
   // Check if user Address exists
   $sql = "SELECT addressID
           FROM User
-          WHERE userID = '".$userID;
+          WHERE userID = '".$userID."'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
 
   // Add address if one doesnt exist
-  if ($row["addressID"] == NULL) {
+  if ($row["addressID"] == 0) {
     $sql = "INSERT INTO Address (street, city, zipcode, country)
-            VALUES ('".$street."', '".$city."', '".$zipcode."', '".$country."')";
+            VALUES ('".$street."', '".$city."', ".$zipcode.", '".$country."'); SELECT SCOPE_IDENTITY();";
     $result = mysqli_query($conn, $sql);
-    $sql = // TODO: Store addressID in user table
+
+    $sql = "SELECT addressID FROM Address
+            WHERE street = '".$street."' AND city = '".$city."' AND zipcode = '".$zipcode."' AND country = '".$country."'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+
+    $addrID = $row["addressID"];
+    $sql = "UPDATE User
+            SET addressID = ".$addrID."
+            WHERE userID = ".$userID;
+    $result = mysqli_query($conn, $sql);
   }
 
 
@@ -76,7 +91,7 @@
   $result = mysqli_query($conn, $sql);
 
   // Insert Purchase into Transaction
-  $message = "You purchased a ".$_GET["productName"];
+  $message = "You purchased a ".$_POST["productName"];
   mysqli_close($conn);
 ?>
 

@@ -12,7 +12,7 @@ include "php/header.php";
       if ($username == "Guest") {
         echo "<div class='productContainer col-md-9'>";
       } else {
-        echo "<div class='productContainer'>";
+        echo "<div class='productContainer col-md-12'>";
       }
 
       // Create connection
@@ -47,7 +47,7 @@ include "php/header.php";
 
       if ($username == "Guest") {
         echo "<div id='formContainer' class='col-md-3'>
-          <form id='signupForm' action = 'php/loginProcess.php' method='post' onsubmit='return formvalidate(this);'>
+          <form class='Form' action = 'php/loginProcess.php' method='post' onsubmit='return formvalidate(this);'>
 
             <h3>Login</h3>
             <div id='emailField' class='form-group'>

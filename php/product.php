@@ -6,7 +6,7 @@ $pageTitle = "product";
 include "header.php";
 
 echo "<div class='container'>";
-echo "div class='row'>";
+echo "<div class='row'>";
 
 // Create connection
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

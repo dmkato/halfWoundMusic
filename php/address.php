@@ -21,38 +21,58 @@
     $message =  "Please <a href='".$directory."/index.php'>Log in</a>";
   } else {
 
-    // Get userID
-    $sql = "SELECT userID
+    // Check if user Address exists
+    $sql = "SELECT addressID
             FROM User
-            WHERE email='".$email."'";
+            WHERE userID = '".$userID."'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
-    $userID = $row["userID"];
 
-    // Construct form
-    $message = "
-    <div id='formContainer' class='text-center'>
-      <h3>Sign Up</h3>
-      <form id='addressForm' action='purchase.php?productID=".$productID."&productName=".$prproductName." method='post'>
-        <div id='Address' class='form-group'>
-          <input name='address' class='form-control' id='address' placeholder='Address'>
+    // Add address if one doesnt exist
+    if ($row["addressID"] == 0) {
+
+      // Get userID
+      $sql = "SELECT userID
+              FROM User
+              WHERE email='".$email."'";
+      $result = mysqli_query($conn, $sql);
+      $row = mysqli_fetch_assoc($result);
+      $userID = $row["userID"];
+
+      // Construct form
+      $message = "
+      <div class='outerForm'>
+      <div id='formContainer' class='text-left'>
+        <div class='addressForm'>
+          <h3>Shipping Address</h3>
+          <form id='addressForm' action='purchase.php' method='post'>
+            <div class='form-group'>
+              <input name='address' class='form-control' id='address' placeholder='Address'>
+            </div>
+            <div class='form-group'>
+              <input name='city' class='form-control' id='city' placeholder='City'>
+            </div>
+            <div class='form-group'>
+              <input name='zipcode' class='form-control' id='zipcode' placeholder='Zipcode'>
+            </div>
+            <div class='form-group'>
+              <input name='country' class='form-control' id='country' placeholder='Country'>
+            </div>
+            <input type='hidden' name='productID' value='".$productID."'>
+            <input type='hidden' name='productName' value='".$productName."'>
+            <div>
+              <input id='submitButton' type='submit' class='btn btn-default'>
+            </div>
+          </form>
         </div>
-        <div id='city' class='form-group'>
-          <input name='city' class='form-control' id='city' placeholder='City'>
-        </div>
-        <div id='zipCode' class='form-group'>
-          <input name='zipcode' class='form-control' id='zipcode' placeholder='Zipcode'>
-        </div>
-        <div id='country' class='form-group'>
-          <input name='country' class='form-control' id='country' placeholder='Country'>
-        </div>
-        <div>
-          <input id='submitButton' type='submit' class='btn btn-default'>
-        </div>
-      </form>
-    </div>";
+      </div>
+      </div>";
+  } else {
+    // POST Address
+
+  }
 }
-  mysqli_close($conn);
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
