@@ -40,12 +40,12 @@ $directory = "/~katod/halfWoundMusic";
             </div>
 
             <div class="middleMenus col-md-6">
-              <div id="searchBar" class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+              <form id="searchBar" class="input-group" action='<?php echo $directory;?>/php/search.php' method='post'>
+                <input name="query" type="text" class="form-control" placeholder="Search">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">Go!</button>
+                  <input type="submit" class="btn btn-default" type="button">Go!</input>
                 </span>
-              </div>
+              </form>
 
               <ul class="nav nav-pills">
 

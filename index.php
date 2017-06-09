@@ -9,7 +9,6 @@ include "php/header.php";
       <?php
 
       // Create column
-      echo $username;
       if ($username == "Guest") {
         echo "<div class='productContainer col-md-9'>";
       } else {

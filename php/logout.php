@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["username"]="Not logged in";
+$_SESSION["username"]="";
 
 
 ?>
