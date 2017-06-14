@@ -20,7 +20,9 @@ if (!$conn) {
 $productID = (int) $_GET['productID'];
 
 // Get product info
-$sql = "SELECT productID, name, description, price FROM Product WHERE productID = $productID";
+$sql = "SELECT productID, name, description, price
+        FROM Product
+        WHERE productID = $productID";
 $result = mysqli_query($conn, $sql);
 $rows = mysqli_num_rows($result);
 
@@ -36,9 +38,30 @@ while($row = mysqli_fetch_assoc($result)) {
   echo "<li><h3>".$row["name"]."<span class='price'>$".$row["price"]."</span></h3></li>";
   echo "<li>".$row["description"]."</li>";
   echo "<li><a href='address.php?productID=".$productID."&productName=".$row["name"]."' class='btn btn-default purchaseBtn'>Purchase</a></li>";
-  echo "</ul></div>";
   echo "<br><br>";
 }
+
+// Show reviews
+$sql = "SELECT reviewText, numStars, firstName, lastName, reviewID
+        FROM Review
+        INNER JOIN User ON Review.userID = User.userID
+        WHERE productID = $productID";
+$result = mysqli_query($conn, $sql);
+
+echo "<h3 id='reviewTitle'>Reviews <span><a href='#' onclick='reviewPrompt($productID)'>(Leave Review)</a></span></h3>";
+
+while($row = mysqli_fetch_assoc($result)) {
+  echo "<li>
+          <div class='panel'>
+            <pre>{$row['firstName']} {$row['lastName']}     {$row['numStars']} / 5</pre>
+            <p>{$row['reviewText']}</p>
+          </div>
+        </li>";
+}
+
+echo "</ul>";
+
+
 
 if($rows == 0)
 {
