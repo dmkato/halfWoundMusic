@@ -90,9 +90,18 @@
           VALUES (".$transactionID.", ".$productID.", 1)";
   $result = mysqli_query($conn, $sql);
 
+  //decrease stock
+  $sql = "UPDATE Product
+          SET stock = stock - 1
+          WHERE productID = $productID";
+  $result = mysqli_query($conn, $sql);
+
   // Insert Purchase into Transaction
   $message = "You purchased a ".$_POST["productName"];
   mysqli_close($conn);
+
+
+
 ?>
 
 <!DOCTYPE html>
