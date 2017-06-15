@@ -43,7 +43,10 @@ include "header.php";
 			echo "<br><br>";
 			echo "Last name: ".$row["lastname"];
 			echo "<br><br>";
-			echo "Address: {$row["street"]} {$row["city"]} {$row["zipCode"]} {$row["country"]}";
+
+			if ($row["addressID"] != 0) {
+				echo "Address: {$row["street"]} {$row["city"]} {$row["zipCode"]} {$row["country"]}";
+			}
 			echo "<br><br>";
 			echo "</div>";
 
