@@ -20,14 +20,15 @@ if (!$conn) {
 $productID = (int) $_GET['productID'];
 
 // Get product info
-$sql = "SELECT productID, name, description, price
+$sql = "SELECT productID, name, description, price, stock
         FROM Product
-        WHERE productID = $productID";
+        WHERE productID = $productID AND stock > 0";
 $result = mysqli_query($conn, $sql);
 $rows = mysqli_num_rows($result);
 
 while($row = mysqli_fetch_assoc($result)) {
   $imageID = (string) $row["productID"];
+  $stockCount = (string) $row["stock"];
 
   echo "<br><br>";
   $imageLink = "../images/".$imageID.".jpeg";
@@ -37,8 +38,10 @@ while($row = mysqli_fetch_assoc($result)) {
   echo "<div class='col-md-8'><ul>";
   echo "<li><h3>".$row["name"]."<span class='price'>$".$row["price"]."</span></h3></li>";
   echo "<li>".$row["description"]."</li>";
+  echo "<li>"."Stock: ".$stockCount."</li>";
   echo "<li><a href='address.php?productID=".$productID."&productName=".$row["name"]."' class='btn btn-default purchaseBtn'>Purchase</a></li>";
   echo "<br><br>";
+  
 }
 
 // Show reviews

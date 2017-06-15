@@ -22,7 +22,7 @@ include "php/header.php";
       if (!$conn)
       die("Connection failed: " . mysqli_connect_error());
 
-      $sql = "SELECT productID, name, description, price, brandName FROM Product";
+      $sql = "SELECT productID, name, description, price, brandName FROM Product WHERE stock > 0";
       $result = mysqli_query($conn, $sql);
 
       while($row = mysqli_fetch_assoc($result)) {
