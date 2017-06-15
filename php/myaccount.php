@@ -25,7 +25,10 @@ include "header.php";
 				die("Connection failed: " . mysqli_connect_error());
 			}
 
-			$sql = "SELECT email, lastname, firstname, userID FROM User WHERE email='".$_SESSION['email']."'";
+			$sql = "SELECT *
+							FROM User
+							INNER JOIN Address ON User.addressID = Address.addressID
+							WHERE email='".$_SESSION['email']."'";
 			$result = mysqli_query($conn, $sql);
 
 			$row = mysqli_fetch_assoc($result);
@@ -40,6 +43,7 @@ include "header.php";
 			echo "<br><br>";
 			echo "Last name: ".$row["lastname"];
 			echo "<br><br>";
+			echo "Address: {$row["street"]} {$row["city"]} {$row["zipCode"]} {$row["country"]}";
 			echo "<br><br>";
 			echo "</div>";
 
