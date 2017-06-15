@@ -40,25 +40,29 @@
   // Check if user Address exists
   $sql = "SELECT addressID
           FROM User
-          WHERE userID = '".$userID."'";
+          WHERE userID = '$userID'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
 
   // Add address if one doesnt exist
   if ($row["addressID"] == 0) {
+
+    // Insert Address
     $sql = "INSERT INTO Address (street, city, zipcode, country)
-            VALUES ('".$street."', '".$city."', ".$zipcode.", '".$country."'); SELECT SCOPE_IDENTITY();";
+            VALUES ('$street', '$city', $zipcode, '$country')";
     $result = mysqli_query($conn, $sql);
 
+    // Get Address ID
     $sql = "SELECT addressID FROM Address
-            WHERE street = '".$street."' AND city = '".$city."' AND zipcode = '".$zipcode."' AND country = '".$country."'";
+            WHERE street = '$street' AND city = '$city' AND zipcode = '$zipcode' AND country = '$country'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
+    // Set User Addres ID
     $addrID = $row["addressID"];
     $sql = "UPDATE User
-            SET addressID = ".$addrID."
-            WHERE userID = ".$userID;
+            SET addressID = $addrID
+            WHERE userID = $userID";
     $result = mysqli_query($conn, $sql);
   }
 

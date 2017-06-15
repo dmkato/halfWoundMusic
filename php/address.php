@@ -16,28 +16,28 @@
   $productName = $_GET["productName"];
   $email = $_SESSION["email"];
 
-  //check logged in
+  // check logged in
   if ($_SESSION["username"] == "") {
     $message =  "Please <a href='".$directory."/index.php'>Log in</a> to view this product";
   } else {
 
+    // Get userID
+    $sql = "SELECT userID
+            FROM User
+            WHERE email='".$email."'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $userID = $row["userID"];
+
     // Check if user Address exists
     $sql = "SELECT addressID
             FROM User
-            WHERE userID = '".$userID."'";
+            WHERE userID = '$userID'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
     // Add address if one doesnt exist
     if ($row["addressID"] == 0) {
-
-      // Get userID
-      $sql = "SELECT userID
-              FROM User
-              WHERE email='".$email."'";
-      $result = mysqli_query($conn, $sql);
-      $row = mysqli_fetch_assoc($result);
-      $userID = $row["userID"];
 
       // Construct form
       $message = "
@@ -58,8 +58,8 @@
             <div class='form-group'>
               <input name='country' class='form-control' id='country' placeholder='Country'>
             </div>
-            <input type='hidden' name='productID' value='".$productID."'>
-            <input type='hidden' name='productName' value='".$productName."'>
+            <input type='hidden' name='productID' value='$productID'>
+            <input type='hidden' name='productName' value='$productName'>
             <div>
               <input id='submitButton' type='submit' class='btn btn-default'>
             </div>
@@ -68,8 +68,12 @@
       </div>
       </div>";
   } else {
-    // POST Address
-
+      $message = "
+        <form id='hiddenForm' action='purchase.php' method='post'>
+          <input type='hidden' name='productID' value='$productID'>
+          <input type='hidden' name='productName' value='$productName'>
+        </form>
+    ";
   }
 }
 mysqli_close($conn);

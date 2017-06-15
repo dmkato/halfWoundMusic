@@ -72,3 +72,8 @@ function reviewPrompt(productID) {
          </div>\
       </li>");
 }
+
+// On Page Load
+$(function() {
+   $('#hiddenForm').submit();
+})
