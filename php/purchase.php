@@ -89,10 +89,27 @@
   $row = mysqli_fetch_assoc($result);
   $transactionID = $row["transactionID"];
 
-  //Insert Purchase
-  $sql = "INSERT INTO Purchase (transactionID, productID, quantity)
-          VALUES (".$transactionID.", ".$productID.", 1)";
+  // Check if product has been purchased today
+  $sql = "SELECT *
+          FROM Purchase
+          WHERE transactionID = $transactionID
+          AND productID = $productID";
   $result = mysqli_query($conn, $sql);
+  $numRows = mysqli_num_rows($result);
+
+  if ($numRows > 0) {
+    $sql = "UPDATE Purchase
+            SET quantity = quantity + 1
+            WHERE transactionID = $transactionID
+            AND productID = $productID";
+    $result = mysqli_query($conn, $sql);
+  } else {
+
+    //Insert New Purchase
+    $sql = "INSERT INTO Purchase (transactionID, productID, quantity)
+            VALUES (".$transactionID.", ".$productID.", 1)";
+    $result = mysqli_query($conn, $sql);
+  }
 
   //decrease stock
   $sql = "UPDATE Product
@@ -103,8 +120,6 @@
   // Insert Purchase into Transaction
   $message = "You purchased a ".$_POST["productName"];
   mysqli_close($conn);
-
-
 
 ?>
 

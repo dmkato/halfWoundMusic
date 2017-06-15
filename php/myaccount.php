@@ -51,12 +51,12 @@ include "header.php";
 			echo "</div>";
 
 			// Select Purchases
-			$sql = "SELECT Product.brandName, Product.name, Transaction.purchaseDate
-			FROM Product
-			INNER JOIN Purchase ON Product.productID = Purchase.productID
-			INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
-			WHERE Transaction.userID = ".$userID."
-			ORDER BY Transaction.purchaseDate";
+			$sql = "SELECT *
+							FROM Product
+							INNER JOIN Purchase ON Product.productID = Purchase.productID
+							INNER JOIN Transaction ON Purchase.transactionID = Transaction.transactionID
+							WHERE Transaction.userID = $userID
+							ORDER BY Transaction.purchaseDate DESC";
 			$result = mysqli_query($conn, $sql);
 			echo "<div class='col-md-6 text-center'>";
 			echo "<h3>Purchases</h3>";
@@ -70,7 +70,7 @@ include "header.php";
 					echo "<tr>";
 					echo "<td>".$row["purchaseDate"]."</td>";
 					echo "<td>".$row["brandName"]." ".$row["name"]."</td>";
-					echo "<td>1</td>";
+					echo "<td>".$row["quantity"]."</td>";
 					echo "</tr>";
 				}
 				echo "</table></div>";

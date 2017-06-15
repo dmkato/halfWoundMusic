@@ -21,18 +21,10 @@
     $message =  "Please <a href='".$directory."/index.php'>Log in</a> to view this product";
   } else {
 
-    // Get userID
-    $sql = "SELECT userID
-            FROM User
-            WHERE email='".$email."'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $userID = $row["userID"];
-
     // Check if user Address exists
     $sql = "SELECT addressID
             FROM User
-            WHERE userID = '$userID'";
+            WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
