@@ -22,10 +22,10 @@ include "header.php";
           <input name="email" class="form-control" id="email" placeholder="Email Address">
         </div>
         <div id="passwordField" class="form-group">
-          <input type="password" name="userpassword" class="form-control" id="userpassword" placeholder="Password">
+          <input type="password" name="password" class="form-control" id="userpassword" placeholder="Password">
         </div>
         <div id="passwordField" class="form-group">
-          <input type="password" name="passwordconfirm" class="form-control" id="passwordconfirm" placeholder="Confirm Password">
+          <input type="password" name="password" class="form-control" id="passwordconfirm" placeholder="Confirm Password">
         </div>
         <div>
           <input id="submitButton" type="submit" class="btn btn-default">

@@ -43,12 +43,13 @@ include "header.php";
 			echo "<br><br>";
 			echo "Last name: ".$row["lastname"];
 			echo "<br><br>";
-			echo "<a href='accountdelete.php' class='btn btn-default deleteaccountBtn'>Delete account</a>";
-
+			
 			if ($row["addressID"] != 0) {
 				echo "Address: {$row["street"]} {$row["city"]} {$row["zipCode"]} {$row["country"]}";
+				echo "<br><br>";
 			}
-			echo "<br><br>";
+			
+			echo "<a href='accountdelete.php' class='btn btn-default deleteaccountBtn'>Delete account</a>";
 			echo "</div>";
 
 			// Select Purchases
