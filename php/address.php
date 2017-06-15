@@ -17,8 +17,8 @@
   $email = $_SESSION["email"];
 
   //check logged in
-  if ($_SESSION["username"] == "Not logged in") {
-    $message =  "Please <a href='".$directory."/index.php'>Log in</a>";
+  if ($_SESSION["username"] == "") {
+    $message =  "Please <a href='".$directory."/index.php'>Log in</a> to view this product";
   } else {
 
     // Check if user Address exists
