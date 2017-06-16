@@ -58,7 +58,7 @@
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    // Set User Addres ID
+    // Set User Address ID
     $addrID = $row["addressID"];
     $sql = "UPDATE User
             SET addressID = $addrID
@@ -98,6 +98,8 @@
   $numRows = mysqli_num_rows($result);
 
   if ($numRows > 0) {
+
+    // Increment quantity
     $sql = "UPDATE Purchase
             SET quantity = quantity + 1
             WHERE transactionID = $transactionID

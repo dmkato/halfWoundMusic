@@ -25,9 +25,16 @@ include "header.php";
 				die("Connection failed: " . mysqli_connect_error());
 			}
 
-			$sql = "SELECT *
+			// Create userAddress view
+			$sql = "CREATE VIEW userAddress AS
+							SELECT userID, email, firstname, lastname, street, city, zipCode, country
 							FROM User
-							INNER JOIN Address ON User.addressID = Address.addressID
+							INNER JOIN Address ON User.addressID = Address.addressID";
+			$result = mysqli_query($conn, $sql);
+
+			// Select from userAddress view
+			$sql = "SELECT *
+							FROM userAddress
 							WHERE email='".$_SESSION['email']."'";
 			$result = mysqli_query($conn, $sql);
 
@@ -43,12 +50,12 @@ include "header.php";
 			echo "<br><br>";
 			echo "Last name: ".$row["lastname"];
 			echo "<br><br>";
-			echo "<a href='accountdelete.php' class='btn btn-default deleteaccountBtn'>Delete account</a>";
 
-			if ($row["addressID"] != 0) {
+			if ($row["street"] != "VOID") {
 				echo "Address: {$row["street"]} {$row["city"]} {$row["zipCode"]} {$row["country"]}";
+				echo "<br><br>";
 			}
-			echo "<br><br>";
+			echo "<a href='accountdelete.php' class='btn btn-default deleteaccountBtn'>Delete account</a>";
 			echo "</div>";
 
 			// Select Purchases

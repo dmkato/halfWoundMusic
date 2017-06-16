@@ -8,9 +8,9 @@ if($_SESSION["username"] == "") {
 }
 
 //edit to correct path depending on where files are hosted
-// $directory = "/~katod/halfWoundMusic";
+$directory = "/~katod/halfWoundMusic";
 
-$directory = "/~giovanmi/dbs/halfWoundMusic";
+// $directory = "/~giovanmi/dbs/halfWoundMusic";
 
 ?>
 
